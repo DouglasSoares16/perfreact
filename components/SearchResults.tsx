@@ -1,11 +1,11 @@
 import { ProductItem } from "./ProductItem";
 
 interface SearchResultsProps {
-  results: [{
+  results: Array<{
     id: number,
     price: number,
     title: string
-  }]
+  }>
 }
 
 export function SearchResults({ results }: SearchResultsProps) {
@@ -14,7 +14,7 @@ export function SearchResults({ results }: SearchResultsProps) {
       {
         results.map((product) => {
           return (
-            <ProductItem product={product} />
+            <ProductItem key={product.id} product={product} />
           )
         })
       }
